@@ -111,6 +111,23 @@ canvas {
   opacity: 0.5;
 }
 
+#fullscreen-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 230, 255, 0.5);
+  color: #00e6ff;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Righteous', sans-serif;
+  font-size: 20px;
+  transition: 0.3s;
+  pointer-events: auto; /* Required since .game-ui has pointer-events: none */
+}
+
+#fullscreen-btn:hover {
+  background: rgba(0, 230, 255, 0.2);
+  box-shadow: 0 0 10px #00e6ff;
+}
+
 @keyframes blink-animation {
   to { visibility: hidden; }
 }
