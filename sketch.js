@@ -15,10 +15,20 @@ let irisState = 'none', irisRadius = 0;
 let seenInstructions = {};
 
 function setup() {
-  createCanvas(W, H);
+  const canvas = createCanvas(W, H);
+  canvas.parent('game-container'); // Keeps canvas inside our styled container
   textFont('Righteous');
+  
+  // Fullscreen logic
+  const fsBtn = document.getElementById('fullscreen-btn');
+  fsBtn.addEventListener('click', () => {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  });
+
   for(let i=0; i<80; i++) embers.push(new Ember(true));
 }
+
 
 function resetLevel() {
   const lv = levels[currentLevel];
