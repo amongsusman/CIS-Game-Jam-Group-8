@@ -4,25 +4,87 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: #0d0812;
+  background-color: #0d0812; /* Matches game background */
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Righteous', sans-serif;
+  color: #fff;
 }
 
-/* This forces the canvas to grow and fill the screen while maintaining aspect ratio */
+#game-container {
+  position: relative;
+  width: 1200px; /* Matches W in sketch.js */
+  height: 600px; /* Matches H in sketch.js */
+  border: 4px solid #2a2035;
+  box-shadow: 0 0 50px rgba(0, 230, 255, 0.2);
+  overflow: hidden;
+}
+
+/* Scanline Effect for Arcade Feel */
+#game-container::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 100;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+}
+
 canvas {
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain; 
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
 }
 
+/* HUD Styling */
+.game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 50;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.ui-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 230, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+.game-title {
+  font-size: 24px;
+  margin: 0;
+  letter-spacing: 4px;
+  color: #00e6ff;
+  text-shadow: 0 0 10px rgba(0, 230, 255, 0.8);
+}
+
+.level-indicator, .status-indicator {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.blink {
+  animation: blink-animation 1.5s steps(5, start) infinite;
+  color: #00ff9d;
+}
+
+/* Modals */
 .modal-overlay {
   display: none;
   position: absolute;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(13, 8, 18, 0.9);
   justify-content: center;
   align-items: center;
   z-index: 200;
@@ -30,38 +92,25 @@ canvas {
 
 .modal-box {
   background: #2a2035;
-  border: 4px solid #00e6ff;
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 450px;
+  border: 3px solid #ff465a; /* Giant's color */
+  border-radius: 4px;
+  padding: 40px;
+  max-width: 500px;
   text-align: center;
-  position: relative;
-  color: white;
-  box-shadow: 0 0 40px rgba(0, 230, 255, 0.3);
-  animation: popIn 0.3s ease-out;
+  box-shadow: 0 0 30px rgba(255, 70, 90, 0.4);
 }
 
 .modal-box h2 {
+  color: #ff465a;
   margin-top: 0;
-  color: #ff5a5a;
-  letter-spacing: 2px;
 }
 
-.modal-box p { font-size: 18px; line-height: 1.5; }
-
-#close-modal-btn {
-  position: absolute;
-  top: -15px; right: -15px;
-  background: #ff5a5a;
-  color: white; border: 3px solid #1a1025;
-  border-radius: 50%; width: 40px; height: 40px;
-  font-size: 20px; font-family: 'Righteous', sans-serif;
-  cursor: pointer; transition: 0.2s;
+.modal-footer {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.5;
 }
 
-#close-modal-btn:hover { transform: scale(1.15); background: #ff3333; }
-
-@keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+@keyframes blink-animation {
+  to { visibility: hidden; }
 }
