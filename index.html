@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiny [&] Giant: The Volcano Escape</title>
+  <title>Tiny & Giant: The Volcano Escape</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,13 +14,25 @@
 </head>
 <body>
 
-  <div id="instruction-modal" class="modal-overlay">
-    <div class="modal-box">
-      <button id="close-modal-btn">X</button>
-      <h2>LEVEL INSTRUCTIONS</h2>
-      <p id="instruction-text">Instructions go here...</p>
+  <div id="game-container">
+    <div class="game-ui">
+      <div class="ui-header">
+        <div class="level-indicator">SECTOR <span id="lvl-num">01</span></div>
+        <h1 class="game-title">TINY & GIANT</h1>
+        <div class="status-indicator">STATUS: <span class="blink">SYSTEMS ACTIVE</span></div>
+      </div>
     </div>
-  </div>
+
+    <div id="instruction-modal" class="modal-overlay">
+      <div class="modal-box">
+        <button id="close-modal-btn">X</button>
+        <h2>MISSION BRIEFING</h2>
+        <p id="instruction-text">Instructions go here...</p>
+        <div class="modal-footer">PRESS ANY KEY TO DEPLOY</div>
+      </div>
+    </div>
+
+    </div>
 
   <script src="sketch.js"></script>
 </body>
