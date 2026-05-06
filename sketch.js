@@ -410,7 +410,6 @@ function checkLogic() {
       if (s.destroyed) return;
       if (s.type === 'toggle') { 
         if (s.locked !== undefined) s.locked = !giantOnPlate; 
-        
         if (!s.locked && !s.on && rectIntersect(tiny, s)) {
           if (keyIsDown(81) && (!tiny.lift || !tiny.lift.isGun)) {
             s.crankProgress = (s.crankProgress || 0) + 0.015;
@@ -427,7 +426,15 @@ function checkLogic() {
 
   if (levelData.hazards) levelData.hazards.forEach(h => { if (rectIntersect(tiny, h) || rectIntersect(giant, h)) resetLevel(); });
   
-  let switchesOk = !levelData.switches || levelData.switches.every(s => s.on);
+  let switchesOk;
+  
+  if (currentLevel == 0) {
+    switchesOk = !levelData.switches || levelData.switches.filter(s => s.on).length >= 2;
+  }
+  else {
+    switchesOk = !levelData.switches || levelData.switches.every(s => s.on);
+  }
+  
   doorOpen = switchesOk;
   
   tiny.inDoor = rectIntersect(tiny, levelData.door) && doorOpen && tiny.onGround;
