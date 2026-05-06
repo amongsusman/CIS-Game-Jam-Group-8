@@ -429,7 +429,7 @@ function checkLogic() {
   let switchesOk;
   
   if (currentLevel == 0) {
-    switchesOk = !levelData.switches || levelData.switches.filter(s => s.on).length >= 2;
+    switchesOk = !levelData.switches || levelData.switches[1].on && levelData.switches[2].on;
   }
   else {
     switchesOk = !levelData.switches || levelData.switches.every(s => s.on);
