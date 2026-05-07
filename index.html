@@ -1150,6 +1150,7 @@
     <div class="game-preview-frame">
       <span class="game-frame-label">EMBED · PRESS ENTER TO BEGIN</span>
       <canvas id="previewCanvas" height="400" style="width:100%; background:#0a0610; display:block;"></canvas>
+      <script src="sketch.js"></script>
       <div style="padding: 1.2rem 1.5rem; background: var(--dark-card); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;">
         <div style="display:flex; gap: 2rem;">
           <div>
@@ -1188,7 +1189,6 @@
 
 <!-- Decorative ember canvas -->
 <canvas id="emberCanvas" style="position:fixed; inset:0; pointer-events:none; z-index:50; opacity:0.35;" width="1200" height="800"></canvas>
-<script src="sketch.js"></script>
 <script>
   // Floating ember particles on the landing page
   const ec = document.getElementById('emberCanvas');
