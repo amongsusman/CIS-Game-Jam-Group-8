@@ -18,7 +18,8 @@ let tutCamOverride = false, tutCamTarget = { x: W/2, y: H/2, scale: 1 };
 let tutText = "", tutStep = 0, tutTimer = 0, tutHighlight = null, tutPhase = 0, pressedF = false;
 
 function setup() {
-  createCanvas(W, H);
+  let cnv = createCanvas(W, H);
+  cnv.parent("gameFrame");
   textFont('Righteous');
   for(let i=0; i<80; i++) embers.push(new Ember(true));
 }
