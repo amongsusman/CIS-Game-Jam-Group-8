@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1147,9 +1146,8 @@
   <div class="preview-inner">
     <div class="section-label">Live Game</div>
     <h2 class="section-title">Play Now — Right Here</h2>
-    <div class="game-preview-frame">
+    <div class="game-preview-frame" id="gameFrame">
       <span class="game-frame-label">EMBED · PRESS ENTER TO BEGIN</span>
-      <canvas id="previewCanvas" height="400" style="width:100%; background:#0a0610; display:block;"></canvas>
       <div style="padding: 1.2rem 1.5rem; background: var(--dark-card); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;">
         <div style="display:flex; gap: 2rem;">
           <div>
@@ -1239,6 +1237,7 @@
     });
   });
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+<script src="sketch.js"></script>
 </body>
 </html>
