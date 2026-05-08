@@ -550,6 +550,7 @@
       border: 1px solid var(--border);
       position: relative;
       overflow: hidden;
+      height: auto;
     }
 
     .game-preview-canvas {
@@ -1147,20 +1148,23 @@
     <div class="section-label">Live Game</div>
     <h2 class="section-title">Play Now — Right Here</h2>
     <div class="game-preview-frame" id="gameFrame">
+      <!-- canvas goes here automatically via cnv.parent("gameFrame") -->
       <span class="game-frame-label">EMBED · PRESS ENTER TO BEGIN</span>
-      <div style="padding: 1.2rem 1.5rem; background: var(--dark-card); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;">
-        <div style="display:flex; gap: 2rem;">
-          <div>
-            <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.2rem;">Player 1 — Tiny</div>
-            <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; color:var(--cyan);">WASD + Q</div>
-          </div>
-          <div>
-            <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.2rem;">Player 2 — Giant</div>
-            <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; color:var(--red);">Arrow Keys + Space</div>
-          </div>
+    </div>
+    
+    <!-- controls bar OUTSIDE gameFrame, below it -->
+    <div style="padding: 1.2rem 1.5rem; background: var(--dark-card); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+      <div style="display:flex; gap: 2rem;">
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.2rem;">Player 1 — Tiny</div>
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; color:var(--cyan);">WASD + Q</div>
         </div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted);">Press <span style="color:var(--lava);">F</span> for Fullscreen &nbsp;·&nbsp; <span style="color:var(--lava);">R</span> to Restart</div>
+        <div>
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.2rem;">Player 2 — Giant</div>
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; color:var(--red);">Arrow Keys + Space</div>
+        </div>
       </div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted);">Press <span style="color:var(--lava);">F</span> for Fullscreen &nbsp;·&nbsp; <span style="color:var(--lava);">R</span> to Restart</div>
     </div>
   </div>
 </section>
