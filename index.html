@@ -1203,7 +1203,7 @@
   resizeEmber();
   window.addEventListener('resize', resizeEmber);
 
-  const embers = Array.from({length: 40}, () => ({
+  const bgEmbers = Array.from({length: 40}, () => ({
     x: Math.random() * window.innerWidth,
     y: window.innerHeight + Math.random() * 200,
     r: Math.random() * 2.5 + 1,
@@ -1214,7 +1214,7 @@
 
   function animateEmbers() {
     ctx.clearRect(0, 0, ec.width, ec.height);
-    embers.forEach(e => {
+    bgEmbers.forEach(e => {
       e.x += e.vx;
       e.y += e.vy;
       e.a = 0.4 + Math.sin(Date.now() * 0.002 + e.x) * 0.4;
