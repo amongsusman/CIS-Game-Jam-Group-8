@@ -1104,6 +1104,9 @@ function updateCrates() {
 }
 
 function keyPressed() {
+  if ([32, 37, 38, 39, 40].includes(keyCode)) {
+    return false;
+  }
   if (key === 'f' || key === 'F') { 
     let fs = fullscreen(); fullscreen(!fs); 
     pressedF = true;
