@@ -17,10 +17,16 @@ let timeScale = 1.0;
 let tutCamOverride = false, tutCamTarget = { x: W/2, y: H/2, scale: 1 };
 let tutText = "", tutStep = 0, tutTimer = 0, tutHighlight = null, tutPhase = 0, pressedF = false;
 
+let gameFont;
+
+function preload() {
+  gameFont = loadFont('https://fonts.gstatic.com/s/righteous/v17/1cXxaUPXBpj2rGoU7C9mjw.ttf');
+}
+
 function setup() {
   let cnv = createCanvas(W, H);
   cnv.parent("gameFrame");
-  textFont('Righteous');
+  textFont(gameFont);
   for(let i=0; i<80; i++) embers.push(new Ember(true));
 }
 
