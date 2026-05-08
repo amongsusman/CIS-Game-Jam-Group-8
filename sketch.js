@@ -1104,7 +1104,7 @@ function updateCrates() {
 }
 
 function keyPressed() {
-  if ([32, 37, 38, 39, 40].includes(keyCode)) {
+  if ([37, 38, 39, 40].includes(keyCode)) {
     return false;
   }
   if (key === 'f' || key === 'F') { 
@@ -1154,9 +1154,13 @@ function keyPressed() {
       });
     }
   }
+  if (keyCode === 32) return false;
 }
 
 function keyReleased() {
+  if ([37, 38, 39, 40].includes(keyCode)) {
+    return false;
+  }
   if ((key === 'q' || key === 'Q') && state === 'PLAYING' && cutscene === null) {
     if (tiny.lift && tiny.lift.isGun) {
       if (tiny.throwCharging && tiny.chargeFrames > 8) {
@@ -1187,6 +1191,7 @@ function keyReleased() {
       spawnParticles(giant.x+giant.w/2, giant.y, 10, color(200), 'dust');
     }
   }
+  if (keyCode === 32) return false;
 }
 
 function drawMarioIrisCutscene() {
